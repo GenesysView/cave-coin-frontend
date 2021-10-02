@@ -1,0 +1,113 @@
+.barra1 {
+    margin-top: 1rem;
+    height: 20em;
+    background-color: grey;
+    width: 98%;
+    margin-left: 1%;
+}
+.contenedor {
+    width: 98%;
+    margin-left: 1%;
+    margin-top: 1em;
+}
+.cont1 {
+    width: 49.5%;
+    height: 8em;
+    background-color: grey;
+    display: inline-block;
+}
+.cont2 {
+    width: 49.5%;
+    height: 8em;
+    background-color: grey;
+    display: inline-block;
+    margin-left: 1%;
+}
+.barra3p {
+    width: 98%;
+    margin-left: 1%;
+    margin-top: 1em;
+}
+.combo {
+    width: 20%;
+    height: 3em;
+    background-color: grey;
+    display: inline-block;
+}
+.search {
+    width: 45%;
+    height: 3em;
+    background-color: grey;
+    display: inline-block;
+    margin-left: 1%;
+}
+.publicidad6 {
+    width: 33%;
+    height: 3em;
+    background-color: grey;
+    display: inline-block;
+    margin-left: 1%;
+}
+.conte {
+    width: 100%;
+
+}
+.grafica {
+    width: 69%;
+    height: 25em;
+    display: inline-block;
+    background-color: grey;
+}
+.tabla {
+    width: 30%;
+    height: 25em;
+    display: inline-block;
+    background-color: grey;
+    margin-left: 0.5em;
+}
+.conten {
+    width: 100%;
+}
+
+ .publicidad5 {
+        width: 15%;
+        height: 8em;
+        display: inline-block;
+        background-color:yellow;
+    }
+  .publicidad7 {
+        width: 84%;
+        height: 8em;
+        display: inline-block;
+        background-color: grey;
+        margin-left: 0.5em;
+    }
+  .video iframe{
+      width: 99.6%;
+      height: 30em;
+  }
+
+.flex-container {
+    display: flex;
+    height: 100%;
+    padding: 15px;
+    gap: 5px;
+}
+
+.flex-container > div {
+    background: #ffecb3;
+    border: 3px solid #ffcc80;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+.item2 {
+    /* flex:1 1 auto; */
+    flex-grow: 1;
+}
+
+@media (max-width: 480px) {
+    .flex-container {
+        flex-direction: column;
+    }
+}
