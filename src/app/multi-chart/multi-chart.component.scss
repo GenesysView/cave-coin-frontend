@@ -1,0 +1,62 @@
+.contenedor {
+    width: 98%;
+    margin-top: 0.5em;
+}
+.contizq {
+    width: 70%;
+    display: inline-block;
+}
+.publicidad1 {
+    width: 80%;
+    height: 8em;
+    background-color: grey;   
+}
+.barrabusqueda {
+    height: 2em;
+    width: 30%;
+    background-color: grey;
+    margin-top: 1em;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: #2196F3;
+    padding: 10px;
+    margin-top: 1em;
+  }
+  .grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 50px;
+    text-align: center;
+  }
+  .contdere {
+      width: 28%;
+      display: inline-block;
+      margin-left: 0.5em;
+      vertical-align: top;
+  }
+  .publicidad2 {
+      width: 98%;
+      height: 7em;
+      background-color: grey;   
+  }
+  .tabla {
+    width: 98%;
+    height: 20em;
+    margin-top: 0.5em;
+    background-color: grey;
+  }
+  .publicidad3 {
+    width: 98%;
+    height: 7em;
+    background-color: grey;  
+    margin-top: 0.5em;
+  }
+  .publicidad4 {
+    width: 98%;
+    height: 13em;
+    background-color: grey;  
+    margin-top: 0.5em; 
+  }

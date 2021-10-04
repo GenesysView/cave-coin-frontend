@@ -13,6 +13,12 @@ const routes: Routes = [
   }, {
     path: 'detail',
     loadChildren: () => import('./detail/detail.module').then(m => m.DetailModule)
+  }, {
+    path: 'multi-chart',
+    loadChildren: () => import('./multi-chart/multi-chart.module').then(m => m.MultiChartModule)
+  }, {
+    path: 'tools',
+    loadChildren: () => import('./tools/tools.module').then(m => m.ToolsModule)
   }
 ];
 
