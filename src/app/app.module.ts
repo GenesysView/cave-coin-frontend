@@ -12,6 +12,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import { FooterComponent } from './footer/footer.component';
 import { ChartViewComponent } from './components/chart-view/chart-view.component';
+import { MatCarouselModule } from '@ngmodule/material-carousel';
+
 
 
 
@@ -31,7 +33,8 @@ import { ChartViewComponent } from './components/chart-view/chart-view.component
     MatToolbarModule,
     MatButtonModule,
     MatGridListModule,
-    MatMenuModule
+    MatMenuModule,
+    MatCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

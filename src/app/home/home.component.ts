@@ -18,6 +18,7 @@ export interface Tile {
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
+
 export class HomeComponent implements OnInit {
 
   currentAccount = null;
@@ -30,6 +31,17 @@ export class HomeComponent implements OnInit {
     { text: 'Two', cols: 2, rows: 8, color: 'lightgreen' },
     { text: 'One', cols: 8, rows: 8, color: 'lightblue' },
     { text: 'five', cols: 2, rows: 8, color: 'lightgreen' },
+  ];
+
+  intervalSlide = 5000;
+  proportionSlide = 25;
+  numSlide= 5;
+  slides = [
+    {'image': 'https://revistabyte.es/wp-content/uploads/2019/10/que-son-las-criptomonedas-e-invertir-en-criptomonedas-696x461.jpg'}, 
+    {'image': 'https://s.france24.com/media/display/cc347944-0a9a-11eb-b90d-005056bf87d6/w:1280/p:16x9/Bitcoin.webp'},
+    {'image': 'https://fotografias.antena3.com/clipping/cmsimages01/2021/03/02/0CABE1F1-B6D6-4C7E-920E-AFEC2E4E4B57/98.jpg?crop=750,422,x0,y40&width=1900&height=1069&optimize=low&format=webply'}, 
+    {'image': 'https://cdn.euroinnova.edu.es/img/subidasEditor/funciones%20-%202021-04-22t090510-1619075140.876'}, 
+    {'image': 'https://ichef.bbci.co.uk/news/640/cpsprodpb/5ECC/production/_118086242_gettyimages-1312494054.jpg'}
   ];
 
   constructor(
