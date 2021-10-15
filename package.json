@@ -20,8 +20,12 @@
     "@angular/platform-browser": "~12.0.0",
     "@angular/platform-browser-dynamic": "~12.0.0",
     "@angular/router": "~12.0.0",
+    "@metamask/detect-provider": "^1.2.0",
+    "@walletconnect/client": "^1.6.6",
+    "@walletconnect/qrcode-modal": "^1.6.6",
     "rxjs": "~6.6.0",
     "tslib": "^2.1.0",
+    "web3": "^1.2.11",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
@@ -37,5 +41,14 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
     "typescript": "~4.2.3"
+  },
+  "browser": {
+    "crypto": false,
+    "https": false,
+    "http": false,
+    "os": false,
+    "stream": false,
+    "assert": false,
+    "util": false
   }
 }

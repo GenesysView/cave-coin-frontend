@@ -37,9 +37,9 @@
 .search {
     width: 45%;
     height: 3em;
-    background-color: grey;
     display: inline-block;
     margin-left: 1%;
+    vertical-align: top;
 }
 .publicidad6 {
     width: 33%;
@@ -50,7 +50,6 @@
 }
 .conte {
     width: 100%;
-
 }
 .grafica {
     width: 69%;
@@ -69,23 +68,23 @@
     width: 100%;
 }
 
- .publicidad5 {
-        width: 15%;
-        height: 8em;
-        display: inline-block;
-        background-color:yellow;
-    }
-  .publicidad7 {
-        width: 84%;
-        height: 8em;
-        display: inline-block;
-        background-color: grey;
-        margin-left: 0.5em;
-    }
-  .video iframe{
-      width: 99.6%;
-      height: 30em;
-  }
+.publicidad5 {
+    width: 15%;
+    height: 8em;
+    display: inline-block;
+    background-color: yellow;
+}
+.publicidad7 {
+    width: 84%;
+    height: 8em;
+    display: inline-block;
+    background-color: grey;
+    margin-left: 0.5em;
+}
+.video iframe {
+    width: 99.6%;
+    height: 30em;
+}
 
 .flex-container {
     display: flex;
@@ -110,4 +109,12 @@
     .flex-container {
         flex-direction: column;
     }
+}
+
+.AutoComplete {
+    width: 100%;
+}
+
+mat-option {
+    height: auto;
 }

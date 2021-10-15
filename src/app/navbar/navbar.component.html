@@ -1,40 +1,68 @@
 <mat-toolbar>
-    <div class="logo">
-        <img src="../../assets/img/LogoCave.png" alt="">
-    </div>
-    <span class="example-spacer"></span>
-    <div class="menuOptions">
-        <button mat-icon-button class="itemOptions" aria-label="Example icon-button with heart icon">
-            Home
-          </button>
-          <button mat-icon-button class="itemOptions" aria-label="Example icon-button with heart icon">
-              Charts
-          </button>
-          <button mat-icon-button class="itemOptions" aria-label="Example icon-button with heart icon">
-              Trade
-            </button>
-          <button mat-icon-button class="itemOptions" aria-label="Example icon-button with heart icon">
-              Multi Chart
-            </button>
-          <button mat-icon-button class="itemOptions" aria-label="Example icon-button with heart icon">
-              Tools
-            </button>
-            <button mat-icon-button class="itemOptions" aria-label="Example icon-button with heart icon">
-              Suscription
-            </button>
-            <button mat-icon-button class="itemOptions" aria-label="Example icon-button with heart icon">
-              Advertise
-            </button>
-            <button mat-icon-button class="itemOptions" aria-label="Example icon-button with heart icon">
-              Register
-            </button>
-            <button mat-icon-button class="itemOptions" aria-label="Example icon-button with heart icon">
-              Login
-            </button>  
-    </div>  
-  </mat-toolbar>
+  <div class="logo">
+    <img src="../../assets/img/LogoCave.png" alt="">
+  </div>
+  <span class="example-spacer"></span>
+  <div class="menuOptions">
+    <!-- <a mat-icon-button  mat-icon-a class="itemOptions" aria-label="Example icon-a with heart icon" [routerLink]="'/'">
+      Home
+    </a> -->
+    <a mat-icon-button mat-icon-a class="itemOptions" aria-label="Example icon-a with heart icon" [routerLink]="'/'">
+      Charts
+    </a>
+    <a mat-icon-button mat-icon-a class="itemOptions" aria-label="Example icon-a with heart icon">
+      Trade
+    </a>
+    <a mat-icon-button mat-icon-a class="itemOptions" aria-label="Example icon-a with heart icon"
+      [routerLink]="'/multi-chart'">
+      Multi Chart
+    </a>
+    <a mat-icon-button mat-icon-a class="itemOptions" aria-label="Example icon-a with heart icon"
+      [routerLink]="'/tools'">
+      Tools
+    </a>
+    <a mat-icon-button mat-icon-a class="itemOptions" aria-label="Example icon-a with heart icon">
+      Suscription
+    </a>
+    <a mat-icon-button mat-icon-a class="itemOptions" aria-label="Example icon-a with heart icon">
+      Advertise
+    </a>
+    <a mat-icon-button mat-icon-a class="itemOptions" aria-label="Example icon-a with heart icon"
+      [matMenuTriggerFor]="menumyaccount">
+      Account
+    </a>
+    <mat-menu #menumyaccount="matMenu">
+      <button mat-menu-item>
+        <mat-icon>dialpad</mat-icon>
+        <span>Login</span>
+      </button>
+      <button mat-menu-item disabled>
+        <mat-icon>voicemail</mat-icon>
+        <span>Register</span>
+      </button>
+    </mat-menu>
+    <a mat-icon-button mat-icon-a class="itemOptions" aria-label="Example icon-a with heart icon"
+      [matMenuTriggerFor]="menumywallet">
+      My Wallet
+    </a>
+    <mat-menu #menumywallet="matMenu">
+      <button mat-menu-item (click)="connect()">
+        <mat-icon>dialpad</mat-icon>
+        <span>Connect to Metatask</span>
+      </button>
+      <button mat-menu-item (click)="connectTrushWallet()">
+        <mat-icon>voicemail</mat-icon>
+        <span>Connect to Trust Wallet</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>notifications_off</mat-icon>
+        <span>Connect to Bsc</span>
+      </button>
+    </mat-menu>
+  </div>
+</mat-toolbar>
 
-  <!-- <div class="publicidad1">
+<!-- <div class="publicidad1">
     Tu publicidad aqui
 </div> -->
 
@@ -64,4 +92,3 @@
         </div>
     </div>
 </div> -->
-  

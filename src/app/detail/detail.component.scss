@@ -1,7 +1,7 @@
 .publicidad1 {
     width: 96%;
     height: 10em;
-    background-color:yellow;
+    background-color: yellow;
     margin-top: 1emng;
 }
 .flex-container {
@@ -9,20 +9,23 @@
     height: 100%;
     padding: 15px;
     gap: 5px;
+    background-color: snow;
 }
 
 .flex-container > div {
-    background: #ffecb3;
-    border: 3px solid #ffcc80;
+    // background: #ffecb3;
+    // border: 3px solid #ffcc80;
     border-radius: 5px;
     padding: 8px;
 }
 .item1 {
-  width: 20%;
+    width: 20%;
 }
 .tab1 {
-     height: 35em;
-     background-color: grey;
+    height: 35em;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 1em;
 }
 .publicidad3 {
     margin-top: 0.5em;
@@ -30,14 +33,13 @@
     background-color: yellow;
 }
 
-
 .item2 {
     /* flex:1 1 auto; */
     flex-grow: 1;
 }
 .tab3 {
     height: 8em;
-    background-color: grey;
+    background-color: white;
 }
 .tab4 {
     margin-top: 0.5em;
@@ -46,7 +48,7 @@
 }
 .item3 {
     width: 20%;
-  }
+}
 .publicidad2 {
     height: 10em;
     background-color: yellow;
@@ -65,8 +67,8 @@
 }
 
 .flex-container2 > div {
-    background: #ffecb3;
-    border: 3px solid #ffcc80;
+    // background: #ffecb3;
+    // border: 3px solid #ffcc80;
     border-radius: 5px;
     padding: 8px;
 }
@@ -77,4 +79,39 @@
     height: 47.5em;
     width: 100%;
     background-color: grey;
+}
+
+.PanelBuscador {
+    padding: 1em;
+}
+
+.AutoComplete {
+    width: 100%;
+}
+
+mat-option {
+    height: auto;
+}
+
+.TableLinkBinance {
+    list-style: none;
+    padding: 1em;
+    li {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        text-decoration: none;
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        img {
+            margin-right: 0.5em;
+        }
+    }
+}
+
+.PanelBalance{
+    padding: 1em;
+    font-size: 1rem;
 }

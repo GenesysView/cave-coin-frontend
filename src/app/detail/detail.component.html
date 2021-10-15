@@ -5,11 +5,59 @@
 <div class="flex-container">
 
     <div class="item1">
-        <div class="tab1"></div>
+        <div class="tab1">
+            <div>
+                <div class="PanelBalance">
+                    <span><b>Total Supply:</b></span><br />
+                    <span>{{totalSupply}}</span>
+                </div>
+
+                <ul class="TableLinkBinance">
+                    <li>
+                        <img class="ImageLinksBinance" src="https://poocoin.app/images/logos/bscscan.png" alt="">
+                        <a href="https://bscscan.com/token/{{token.link}}" target="_bank">{{token.symbol}}
+                            Transactions</a>
+                    </li>
+                    <li>
+                        <img class="ImageLinksBinance" src="https://poocoin.app/images/logos/bscscan.png" alt="">
+                        <a href="https://bscscan.com/address/{{token.link}}#code" target="_bank">{{token.symbol}}
+                            Contract</a>
+                    </li>
+                    <li>
+                        <img class="ImageLinksBinance" src="https://poocoin.app/images/logos/bscscan.png" alt="">
+                        <a href="https://bscscan.com/token/{{token.link}}#balances" target="_bank">{{token.symbol}}
+                            Holders</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
         <div class="publicidad3"></div>
     </div>
     <div class="item2">
-        <div class="tab3"></div>
+        <div class="tab3">
+            <div class="PanelBuscador">
+                <div>
+                    <img style="vertical-align:middle;" aria-hidden src="{{token.logo}}" height="20" />
+                    <span>{{token.name}}/ BNB)</span>
+                </div>
+                <form [formGroup]="formGroup">
+                    <mat-form-field class="AutoComplete">
+                        <mat-label>
+                            Enter token name / address
+                        </mat-label>
+                        <input formControlName="employee" matInput type="text" [matAutocomplete]="auto" />
+                        <mat-autocomplete #auto="matAutocomplete">
+                            <mat-option *ngFor="let item of filteredOptions" [value]="item.name"
+                                (click)="selectCoin(item)">
+                                <img style="vertical-align:middle;" aria-hidden src="{{item.logo}}" height="20" />
+                                <span>{{ item.name }}</span>
+                                <small style="display: block;line-height: 12px;">{{item.link}}</small>
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                </form>
+            </div>
+        </div>
         <div class="tab4"></div>
     </div>
     <div class="item3">
@@ -25,4 +73,3 @@
     <div class="item6">tupublicidadaqui5</div>
 
 </div>
-
