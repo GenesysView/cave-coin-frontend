@@ -57,5 +57,75 @@ export class GeneralService {
     );
   }
 
-  
+
+  getLastBlock(): Observable<any> {
+    let request = {
+      "jsonrpc": "2.0",
+      "method": "eth_getBlockByNumber",
+      "params": [
+        "latest",
+        false
+      ]
+    }
+    const url = `https://bsc-dataseed1.defibit.io`;
+    return this.http.post(url, request).pipe(
+      map(
+        (res: any) => {
+          return res;
+        },
+        (error: HttpErrorResponse) => {
+          console.log(error.error);
+        }
+      )
+    );
+  }
+
+  eth_getTransactionByHash(txHast: string): Observable<any> {
+    let request = {
+      jsonrpc: "2.0",
+      method: "eth_getTransactionByHash",
+      params: [
+        txHast
+      ]
+    }
+    const url = `https://bsc-dataseed1.defibit.io`;
+    return this.http.post(url, request).pipe(
+      map(
+        (res: any) => {
+          return res;
+        },
+        (error: HttpErrorResponse) => {
+          console.log(error.error);
+        }
+      )
+    );
+  }
+
+  eth_getLogs(block:string, address:string): Observable<any> {
+    let request = {
+      jsonrpc: "2.0",
+      id: 3206,
+      method: "eth_getLogs",
+      params: [
+        {
+          fromBlock: block,
+          toBlock: "latest",
+          address: address
+        }
+      ]
+    }
+    const url = `https://bsc-dataseed1.defibit.io`;
+    return this.http.post(url, request).pipe(
+      map(
+        (res: any) => {
+          return res;
+        },
+        (error: HttpErrorResponse) => {
+          console.log(error.error);
+        }
+      )
+    );
+  }
+
+
 }

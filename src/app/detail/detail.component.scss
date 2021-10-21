@@ -78,7 +78,9 @@
     flex-grow: 1;
     height: 47.5em;
     width: 100%;
-    background-color: grey;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 1em;
 }
 
 .PanelBuscador {
@@ -111,7 +113,15 @@ mat-option {
     }
 }
 
-.PanelBalance{
+.PanelBalance {
     padding: 1em;
     font-size: 1rem;
+}
+
+.TxTable {
+    width: 100%;
+
+    .TxTableContent, td, th{
+        text-align: center;
+    }
 }
