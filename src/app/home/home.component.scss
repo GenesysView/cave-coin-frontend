@@ -1,3 +1,7 @@
+.HomePage {
+    display: inline-block;
+}
+
 .PanelCarrousel {
     margin-top: 1rem;
     height: auto;
@@ -6,29 +10,8 @@
     width: 98%;
     margin-left: 1%;
 }
-.contenedor {
-    width: 98%;
-    margin-left: 1%;
-    margin-top: 1em;
-}
-.cont1 {
-    width: 49.5%;
-    height: 8em;
-    background-color: grey;
-    display: inline-block;
-}
-.cont2 {
-    width: 49.5%;
-    height: 8em;
-    background-color: grey;
-    display: inline-block;
-    margin-left: 1%;
-}
-.barra3p {
-    width: 98%;
-    margin-left: 1%;
-    margin-top: 1em;
-}
+
+
 .combo {
     width: 20%;
     height: 3em;
@@ -87,32 +70,9 @@
     height: 30em;
 }
 
-.flex-container {
-    display: flex;
-    height: 100%;
-    padding: 15px;
-    gap: 5px;
-}
-
-.flex-container > div {
-    background: #ffecb3;
-    border: 3px solid #ffcc80;
-    border-radius: 5px;
-    padding: 8px;
-}
 .tamañoPubli {
     width: 100%;
     height: 100%;
-}
-.item2 {
-    /* flex:1 1 auto; */
-    flex-grow: 1;
-}
-
-@media (max-width: 480px) {
-    .flex-container {
-        flex-direction: column;
-    }
 }
 
 .AutoComplete {
@@ -121,4 +81,65 @@
 
 mat-option {
     height: auto;
+}
+
+.PanelPrincipal {
+    display: flex;
+    height: 100%;
+    padding: 15px;
+    gap: 15px;
+}
+
+.PanelPrincipal > div {
+    // background: #ffecb3;
+    // border: 3px solid #ffcc80;
+    border-radius: 5px;
+    padding: 8px;
+}
+@media (max-width: 480px) {
+    .PanelPrincipal {
+        flex-direction: column;
+    }
+}
+
+.ContentPanel {
+    flex-grow: 1;
+    width: 100%;
+    flex-grow: 1;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 1em;
+}
+
+.LeftAdvertisingPanel,
+.RighttAdvertisingPanel {
+    width: 30%;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 1em;
+}
+
+.OperationsBar {
+    width: 98%;
+    margin-left: 1%;
+    margin-top: 1em;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 1em;
+}
+
+.TopAdvertisingPanel {
+    width: 98%;
+    margin-left: 1%;
+    margin-top: 1em;
+    text-align: center;
+    div{
+        width: 48%;
+        height: 8em;
+        display: inline-block;
+        background-color: white;
+        border: 1px solid #ccc;
+        border-radius: 1em;
+        margin: 0% 0.5%;
+    }
 }

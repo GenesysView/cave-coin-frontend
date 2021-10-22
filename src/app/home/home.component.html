@@ -1,26 +1,23 @@
-<body>
-
-
-
+<section class="HomePage">
     <div>
         <div class="PanelCarrousel">
-            <mat-carousel timings="250ms ease-in" [autoplay]="true" [interval]="intervalSlide" color="accent" maxWidth="auto"
-                [proportion]="proportionSlide" [slides]="numSlide" [loop]="true" [hideArrows]="false" [hideIndicators]="false"
-                [useKeyboard]="true" [useMouseWheel]="false" orientation="ltr">
+            <mat-carousel timings="250ms ease-in" [autoplay]="true" [interval]="intervalSlide" color="accent"
+                maxWidth="auto" [proportion]="proportionSlide" [slides]="numSlide" [loop]="true" [hideArrows]="false"
+                [hideIndicators]="false" [useKeyboard]="true" [useMouseWheel]="false" orientation="ltr">
                 <mat-carousel-slide #matCarouselSlide *ngFor="let slide of slides; let i = index" [image]="slide.image"
                     overlayColor="#00000040" [hideOverlay]="false"></mat-carousel-slide>
             </mat-carousel>
         </div>
-        <div class="contenedor">
-            <div class="cont1">
+        <div class="TopAdvertisingPanel">
+            <div>
                 <img class="tamañoPubli" src="../../assets/img/crypto-news-crypto.gif" alt="">
             </div>
-            <div class="cont2">
+            <div>
                 <img class="tamañoPubli" src="../../assets/img/crypto-news-crypto.gif" alt="">
 
             </div>
         </div>
-        <div class="barra3p">
+        <div class="OperationsBar">
             <div class="combo"></div>
             <div class="search">
                 <form [formGroup]="formGroup">
@@ -41,17 +38,19 @@
                 </form>
             </div>
             <div class="publicidad6">
-                <img class="tamañoPubli" src="../../assets/img/https___bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com_public_images_81f179e5-f4a6-4451-af6a-54b5dd5049db_480x270.gif" alt="">
+                <img class="tamañoPubli"
+                    src="../../assets/img/https___bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com_public_images_81f179e5-f4a6-4451-af6a-54b5dd5049db_480x270.gif"
+                    alt="">
             </div>
         </div>
 
 
-        <div class="flex-container">
+        <div class="PanelPrincipal">
 
-            <div class="item1">
+            <div class="LeftAdvertisingPanel">
                 <img class="tamañoPubli" src="../../assets/img/giphy2.gif" alt="">
             </div>
-            <div class="item2">
+            <div class="ContentPanel">
                 <div class="conte">
                     <div class="grafica"></div>
                     <div class="tabla"></div>
@@ -71,11 +70,11 @@
                 encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
-            <div class="item3"><img class="tamañoPubli" src="../../assets/img/bitco.jpg" alt=""></div>
+            <div class="RighttAdvertisingPanel"><img class="tamañoPubli" src="../../assets/img/bitco.jpg" alt=""></div>
 
         </div>
 
 
     </div>
 
-</body>
+</section>
