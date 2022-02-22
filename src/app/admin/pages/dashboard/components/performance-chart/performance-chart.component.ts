@@ -8,5 +8,5 @@ import { PerformanceChartData } from '../../models';
   styleUrls: ['./performance-chart.component.scss']
 })
 export class PerformanceChartComponent {
-  @Input() performanceChartData: PerformanceChartData;
+  @Input() performanceChartData: PerformanceChartData | undefined;
 }

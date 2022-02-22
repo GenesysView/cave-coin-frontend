@@ -1,145 +1,206 @@
 .HomePage {
-    display: inline-block;
+  display: inline-block;
+  width: 100%;
 }
 
 .PanelCarrousel {
-    margin-top: 1rem;
-    height: auto;
-    min-height: 20em;
-    background-color: grey;
-    width: 98%;
-    margin-left: 1%;
+  margin-top: 1rem;
+  height: auto;
+  min-height: 20em;
+  background-color: grey;
+  width: 98%;
+  margin-left: 1%;
 }
-
 
 .combo {
-    width: 20%;
-    height: 3em;
-    background-color: grey;
-    display: inline-block;
+  width: 20%;
+  height: 3em;
+  background-color: grey;
+  display: inline-block;
 }
+
 .search {
-    width: 45%;
-    height: 3em;
-    display: inline-block;
-    margin-left: 1%;
-    vertical-align: top;
+  width: 50%;
+  height: 3em;
+  display: inline-block;
+  margin-left: 1%;
+  vertical-align: top;
+
+  form {
+    height: 100%;
+  }
 }
+
 .publicidad6 {
-    width: 33%;
-    height: 3em;
-    background-color: grey;
-    display: inline-block;
-    margin-left: 1%;
+  width: 46%;
+  height: 3em;
+  background-color: grey;
+  display: inline-block;
+  margin-left: 1%;
 }
+
 .conte {
-    width: 100%;
+  width: 100%;
 }
+
 .grafica {
-    width: 69%;
-    height: 25em;
-    display: inline-block;
-    background-color: grey;
+  width: 69%;
+  height: 25em;
+  display: inline-block;
+  background-color: grey;
 }
-.tabla {
-    width: 30%;
-    height: 25em;
-    display: inline-block;
-    background-color: grey;
-    margin-left: 0.5em;
-}
-.conten {
+
+.BalanceTable {
+  width: 30%;
+  height: 25em;
+  display: inline-block;
+  margin-left: 0.5em;
+  border-left: 1px dashed #ccc;
+
+  table {
     width: 100%;
+    text-align: center;
+
+    tr {
+      border-bottom: 1px dashed #ccc;
+    }
+  }
+}
+
+.conten {
+  width: 100%;
 }
 
 .publicidad5 {
-    width: 15%;
-    height: 8em;
-    display: inline-block;
-    background-color: yellow;
+  width: 15%;
+  height: 8em;
+  display: inline-block;
+  background-color: yellow;
 }
+
 .publicidad7 {
-    width: 84%;
-    height: 8em;
-    display: inline-block;
-    background-color: grey;
-    margin-left: 0.5em;
+  width: 84%;
+  height: 8em;
+  display: inline-block;
+  background-color: grey;
+  margin-left: 0.5em;
 }
+
 .video iframe {
-    width: 99.6%;
-    height: 30em;
+  width: 99.6%;
+  height: 30em;
 }
 
 .tamañoPubli {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .AutoComplete {
-    width: 100%;
+  width: 100%;
+  vertical-align: top;
+}
+
+.AutoCompleteSelect {
+  width: 40%;
+  vertical-align: top;
+  text-transform: capitalize;
 }
 
 mat-option {
-    height: auto;
+  height: auto;
+  text-transform: capitalize;
+  border-bottom: 1px dashed #ccc;
+  padding-bottom: 1em;
+
+  img {
+    margin-right: 1em;
+  }
+
+  .networkImg {
+    text-align: right;
+    vertical-align: middle;
+    float: right;
+    margin: 0;
+  }
 }
 
 .PanelPrincipal {
-    display: flex;
-    height: 100%;
-    padding: 15px;
-    gap: 15px;
+  display: flex;
+  height: 100%;
+  padding: 15px;
+  gap: 15px;
 }
 
-.PanelPrincipal > div {
-    // background: #ffecb3;
-    // border: 3px solid #ffcc80;
-    border-radius: 5px;
-    padding: 8px;
+.PanelPrincipal>div {
+  // background: #ffecb3;
+  // border: 3px solid #ffcc80;
+  border-radius: 5px;
+  padding: 8px;
 }
+
 @media (max-width: 480px) {
-    .PanelPrincipal {
-        flex-direction: column;
-    }
+  .PanelPrincipal {
+    flex-direction: column;
+  }
 }
 
 .ContentPanel {
-    flex-grow: 1;
-    width: 100%;
-    flex-grow: 1;
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 1em;
+  flex-grow: 1;
+  width: 100%;
+  flex-grow: 1;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 1em;
 }
 
 .LeftAdvertisingPanel,
 .RighttAdvertisingPanel {
-    width: 30%;
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 1em;
+  width: 30%;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 1em;
 }
 
 .OperationsBar {
-    width: 98%;
-    margin-left: 1%;
-    margin-top: 1em;
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 1em;
+  width: 98%;
+  margin-left: 1%;
+  margin-top: 1em;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 1em;
 }
 
 .TopAdvertisingPanel {
-    width: 98%;
-    margin-left: 1%;
-    margin-top: 1em;
-    text-align: center;
-    div{
-        width: 48%;
-        height: 8em;
-        display: inline-block;
-        background-color: white;
-        border: 1px solid #ccc;
-        border-radius: 1em;
-        margin: 0% 0.5%;
-    }
+  width: 98%;
+  margin-left: 1%;
+  margin-top: 1em;
+  text-align: center;
+
+  div {
+    width: 48%;
+    height: 8em;
+    display: inline-block;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 1em;
+    margin: 0% 0.5%;
+  }
+}
+
+tradingview-charting {
+  height: 100%;
+  width: 100%;
+  display: inline-block;
+}
+
+.BlockChainSelect {
+  background-color: white;
+  border: none;
+  border-left-color: currentcolor;
+  border-left-style: none;
+  border-left-width: medium;
+  height: 100%;
+  width: 40%;
+  border-left: 1px solid #ccc;
 }

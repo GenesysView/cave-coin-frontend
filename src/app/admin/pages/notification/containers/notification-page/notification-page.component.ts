@@ -33,41 +33,41 @@ export class NotificationPageComponent {
   }
 
   public showSuccess(): void {
-    this.toastrService.show(
-      null,
-      null,
-      {
-        positionClass: this.toastrPosition,
-        toastComponent: SuccessToastComponent,
-        timeOut: this.timeOut,
-        tapToDismiss: false
-      }
-    );
+    // this.toastrService.show(
+    //   null,
+    //   null,
+    //   {
+    //     positionClass: this.toastrPosition,
+    //     toastComponent: SuccessToastComponent,
+    //     timeOut: this.timeOut,
+    //     tapToDismiss: false
+    //   }
+    // );
   }
 
   public showErrorToastr(): void {
-    this.toastrService.show(
-      null,
-      null,
-      {
-        positionClass: this.toastrPosition,
-        toastComponent: ErrorToastrComponent,
-        timeOut: this.timeOut,
-        tapToDismiss: false
-      }
-    );
+    // this.toastrService.show(
+    //   null,
+    //   null,
+    //   {
+    //     positionClass: this.toastrPosition,
+    //     toastComponent: ErrorToastrComponent,
+    //     timeOut: this.timeOut,
+    //     tapToDismiss: false
+    //   }
+    // );
   }
 
   public showInfoToastr(): void {
-    this.toastrService.show(
-      null,
-      null,
-      {
-        positionClass: this.toastrPosition,
-        toastComponent: InfoToastrComponent,
-        timeOut: this.timeOut,
-        tapToDismiss: false
-      }
-    );
+    // this.toastrService.show(
+    //   null,
+    //   null,
+    //   {
+    //     positionClass: this.toastrPosition,
+    //     toastComponent: InfoToastrComponent,
+    //     timeOut: this.timeOut,
+    //     tapToDismiss: false
+    //   }
+    // );
   }
 }

@@ -14,8 +14,11 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
   }, {
-    path: 'detail/:address',
+    path: 'detail/:address/:network',
     loadChildren: () => import('./detail/detail.module').then(m => m.DetailModule)
+  }, {
+    path: 'trade',
+    loadChildren: () => import('./pages/trade/trade.module').then(m => m.TradeModule)
   }, {
     path: 'multi-chart',
     loadChildren: () => import('./multi-chart/multi-chart.module').then(m => m.MultiChartModule)

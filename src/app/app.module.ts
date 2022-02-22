@@ -14,7 +14,9 @@ import { FooterComponent } from './footer/footer.component';
 import { ChartViewComponent } from './components/chart-view/chart-view.component';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
 import { MatTabsModule } from '@angular/material/tabs';
-
+import { AuthModule } from './admin/pages/auth/auth.module';
+import { GeneralService } from './services/general.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -36,9 +38,13 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatGridListModule,
     MatMenuModule,
     MatCarouselModule,
-    MatTabsModule
+    MatTabsModule,
+    AuthModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    GeneralService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

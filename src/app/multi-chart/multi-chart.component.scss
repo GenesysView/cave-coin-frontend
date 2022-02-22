@@ -1,62 +1,153 @@
 .contenedor {
-    width: 98%;
-    margin-top: 0.5em;
+  width: 98%;
+  margin-top: 0.5em;
 }
 .contizq {
-    width: 70%;
-    display: inline-block;
+  width: 70%;
+  display: inline-block;
 }
 .publicidad1 {
-    width: 80%;
-    height: 8em;
-    background-color: grey;   
+  width: 100%;
+  height: 8em;
+  background-color: grey;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 1em;
+  margin-bottom: 1em;
 }
 .barrabusqueda {
-    height: 2em;
-    width: 30%;
-    background-color: grey;
-    margin-top: 1em;
+  height: 2em;
+  width: 30%;
+  background-color: grey;
+  margin-top: 1em;
 }
 .grid-container {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    background-color: grey;
-    padding: 10px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: grey;
+  padding: 10px;
+  margin-top: 1em;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 1em;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px dashed rgba(0, 0, 0, 0.8);
+  font-size: 50px;
+  text-align: center;
+  width: 339px;
+  height: 310px;
+}
+.contdere {
+  width: 28%;
+  display: inline-block;
+  margin-left: 0.5em;
+  vertical-align: top;
+}
+.publicidad2 {
+  width: 98%;
+  height: 7em;
+  background-color: grey;
+}
+.tabla {
+  width: 98%;
+  height: 20em;
+  margin-top: 0.5em;
+  background-color: grey;
+}
+.publicidad3 {
+  width: 98%;
+  height: 7em;
+  background-color: grey;
+  margin-top: 0.5em;
+}
+.publicidad4 {
+  width: 98%;
+  height: 13em;
+  margin-top: 0.5em;
+}
+
+.PanelPrincipal {
+  display: flex;
+  height: 100%;
+  padding: 15px;
+  gap: 15px;
+}
+
+.PanelPrincipal > div {
+  // background: #ffecb3;
+  // border: 3px solid #ffcc80;
+  border-radius: 5px;
+  padding: 8px;
+}
+@media (max-width: 480px) {
+  .PanelPrincipal {
+    flex-direction: column;
+  }
+}
+
+.ContentPanel {
+  flex-grow: 1;
+  width: 100%;
+  flex-grow: 1;
+  // background-color: white;
+  // border: 1px solid #ccc;
+  // border-radius: 1em;
+}
+
+.LeftAdvertisingPanel,
+.RighttAdvertisingPanel {
+  width: 30%;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 1em;
+}
+
+.PanelBuscador {
+  padding: 1em;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 1em;
+  form {
+    height: 2.5em;
+  }
+}
+
+.AutoComplete {
+  width: 100%;
+  vertical-align: top;
+}
+
+mat-option {
+  height: auto;
+  text-transform: capitalize;
+  border-bottom: 1px dashed #ccc;
+  padding-bottom: 1em;
+  img {
+    margin-right: 1em;
+  }
+
+  .networkImg {
+    vertical-align: middle;
+    float: right;
+    margin: 0;
     margin-top: 1em;
   }
-  .grid-item {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    font-size: 50px;
-    text-align: center;
-  }
-  .contdere {
-      width: 28%;
-      display: inline-block;
-      margin-left: 0.5em;
-      vertical-align: top;
-  }
-  .publicidad2 {
-      width: 98%;
-      height: 7em;
-      background-color: grey;   
-  }
-  .tabla {
-    width: 98%;
-    height: 20em;
-    margin-top: 0.5em;
-    background-color: grey;
-  }
-  .publicidad3 {
-    width: 98%;
-    height: 7em;
-    background-color: grey;  
-    margin-top: 0.5em;
-  }
-  .publicidad4 {
-    width: 98%;
-    height: 13em;
-    background-color: grey;  
-    margin-top: 0.5em; 
-  }
+}
+
+.BlockChainSelect {
+  background-color: white;
+  border: none;
+  border-left-color: currentcolor;
+  border-left-style: none;
+  border-left-width: medium;
+  height: 100%;
+  width: 40%;
+  border-left: 1px solid #ccc;
+}
+
+
+.TradePanelControls{
+  text-align: right;
+}

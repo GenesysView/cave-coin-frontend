@@ -8,7 +8,7 @@
                     overlayColor="#00000040" [hideOverlay]="false"></mat-carousel-slide>
             </mat-carousel>
         </div>
-        <div class="TopAdvertisingPanel">
+        <!-- <div class="TopAdvertisingPanel">
             <div>
                 <img class="tamañoPubli" src="../../assets/img/crypto-news-crypto.gif" alt="">
             </div>
@@ -16,9 +16,13 @@
                 <img class="tamañoPubli" src="../../assets/img/crypto-news-crypto.gif" alt="">
 
             </div>
-        </div>
+        </div> -->
         <div class="OperationsBar">
-            <div class="combo"></div>
+            <!-- <div class="combo">
+                <img class="tamañoPubli"
+                    src="../../assets/img/https___bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com_public_images_81f179e5-f4a6-4451-af6a-54b5dd5049db_480x270.gif"
+                    alt="">
+            </div> -->
             <div class="search">
                 <form [formGroup]="formGroup">
                     <mat-form-field class="AutoComplete">
@@ -29,12 +33,35 @@
                         <mat-autocomplete #auto="matAutocomplete">
                             <mat-option *ngFor="let item of filteredOptions" [value]="item.name"
                                 (click)="selectCoin(item)">
-                                <img style="vertical-align:middle;" aria-hidden src="{{item.logo}}" height="20" />
+                                <img *ngIf="item.logo" style="vertical-align:middle;" aria-hidden
+                                    src="https://cavecoin.app:3011/public/{{item.logo}}" height="20" />
+                                <img *ngIf="!item.logo" style="vertical-align:middle;" aria-hidden
+                                    src="/assets/img/empty-icon.png" height="20" />
                                 <span>{{ item.name }}</span>
-                                <small style="display: block;line-height: 12px;">{{item.link}}</small>
+                                <div class="networkImg" *ngIf="getAddress(item).name == 'binance-smart-chain'">
+                                    <img style="vertical-align:middle;" aria-hidden
+                                        src="https://poocoin.app/images/logos/bscscan.png" height="20" />
+                                    <span style="display: block;line-height: 14px;">Binance Smart Chain</span>
+                                </div>
+                                <div class="networkImg" *ngIf="getAddress(item).name == 'ethereum'">
+                                    <img style="vertical-align:middle;" aria-hidden src="/assets/img/icon/ethscan.png"
+                                        height="20" />
+                                    <span style="display: block;line-height: 14px;">Ethereum</span>
+                                </div>
+                                <div class="networkImg" *ngIf="getAddress(item).name == 'polygon-pos'">
+                                    <img style="vertical-align:middle;" aria-hidden
+                                        src="https://polygonscan.com/images/svg/brands/poly.png" height="20" />
+                                    <span style="display: block;line-height: 14px;">Polygon</span>
+                                </div>
+                                <small style="display: block;line-height: 12px;">{{getAddress(item).address}}</small>
                             </mat-option>
                         </mat-autocomplete>
                     </mat-form-field>
+                    <!-- <select [formControl]="symbolCategorySelect" class="BlockChainSelect">
+                        <option *ngFor="let symbolCategory of symbolsCategories" [value]="symbolCategory.key">
+                            {{symbolCategory.name}}
+                        </option>
+                    </select> -->
                 </form>
             </div>
             <div class="publicidad6">
@@ -47,13 +74,27 @@
 
         <div class="PanelPrincipal">
 
-            <div class="LeftAdvertisingPanel">
+            <!-- <div class="LeftAdvertisingPanel">
                 <img class="tamañoPubli" src="../../assets/img/giphy2.gif" alt="">
-            </div>
+            </div> -->
             <div class="ContentPanel">
                 <div class="conte">
-                    <div class="grafica"></div>
-                    <div class="tabla"></div>
+                    <div class="grafica">
+                        <tradingview-charting></tradingview-charting>
+                    </div>
+                    <div class="BalanceTable">
+                        <table *ngIf="tokenWalletTemp">
+                            <tr>
+                                <th>Tokens</th>
+                                <th>Balance</th>
+                            </tr>
+                            <tr>
+                                <td>BNB {{tokenWalletTemp.currentPrice | currency}}<br>BNB</td>
+                                <td>{{tokenWalletTemp.mycant}}<br>{{ (tokenWalletTemp.currentPrice *
+                                    tokenWalletTemp.mycant) | currency }}</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
                 <div class="conten">
                     <div class="publicidad5">

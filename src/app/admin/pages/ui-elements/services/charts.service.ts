@@ -152,7 +152,7 @@ export class ChartsService {
     });
   }
 
-  private generateApexHeatmapChartData(count, yrange): number[] {
+  private generateApexHeatmapChartData(count:any, yrange:any): any[] {
     let i = 0;
     const series = [];
     while (i < count) {

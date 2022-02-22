@@ -13,6 +13,7 @@ import {
 import { DailyLineChartData, TimeData } from '../../models';
 import { colors } from '../../../../consts';
 import { customTooltip } from '../../consts';
+import * as ApexCharts from 'apexcharts';
 
 type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -42,10 +43,10 @@ enum matSelectedFields {
   styleUrls: ['./daily-line-chart.component.scss']
 })
 export class DailyLineChartComponent implements OnInit, AfterViewInit {
-  @Input() dailyLineChartData: DailyLineChartData;
-  @ViewChild('chart') chart: ElementRef;
-  public chartObj: ApexCharts;
-  public chartOptions: Partial<ChartOptions>;
+  @Input() dailyLineChartData!: DailyLineChartData;
+  @ViewChild('chart') chart!: ElementRef;
+  public chartObj!: ApexCharts;
+  public chartOptions!: Partial<ChartOptions>;
   public matSelectFields: typeof matSelectedFields = matSelectedFields;
   public selectedMatSelectValue = matSelectedFields.monthly;
   public colors: typeof colors = colors;
@@ -55,10 +56,10 @@ export class DailyLineChartComponent implements OnInit, AfterViewInit {
   }
 
   public ngAfterViewInit() {
-    this.chartObj = new ApexCharts(
-      this.chart.nativeElement,
-      this.chartOptions
-    )
+    // this.chartObj = new ApexCharts(
+    //   this.chart.nativeElement,
+    //   this.chartOptions
+    // )
 
     this.chartObj.render();
   }
@@ -225,6 +226,6 @@ export class DailyLineChartComponent implements OnInit, AfterViewInit {
         };
     }
 
-    this.chartObj.updateSeries(this.chartOptions.series);
+    // this.chartObj.updateSeries(this.chartOptions.series);
   }
 }

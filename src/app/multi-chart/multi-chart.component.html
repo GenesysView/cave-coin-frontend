@@ -1,25 +1,121 @@
 <div>
-    <div class="contenedor">
-        <div class="contizq">
-            <div class="publicidad1"></div>
-            <div class="barrabusqueda"></div>
+    <div class="PanelPrincipal">
+        <div class="ContentPanel">
+            <div class="publicidad1">
+                <img src="../../assets/img/giphy3.gif" alt="" style="height: 100%;width: 100%;">
+            </div>
+            <div class="PanelBuscador">
+                <form [formGroup]="formGroup">
+                    <mat-form-field class="AutoComplete">
+                        <mat-label>
+                            Enter token name / address
+                        </mat-label>
+                        <input formControlName="employee" matInput type="text" [matAutocomplete]="auto" />
+                        <mat-autocomplete #auto="matAutocomplete">
+                            <mat-option *ngFor="let item of filteredOptions" [value]="item.name"
+                                (click)="selectCoin(item)">
+                                <img *ngIf="item.logo" style="vertical-align:middle;" aria-hidden
+                                    src="https://cavecoin.app:3011/public/{{item.logo}}" height="20" />
+                                <img *ngIf="!item.logo" style="vertical-align:middle;" aria-hidden
+                                    src="/assets/img/empty-icon.png" height="20" />
+                                <span>{{ item.name }}</span>
+                                <img *ngIf="getAddress(item).name == 'binance-smart-chain'" class="networkImg"
+                                    style="vertical-align:middle;" aria-hidden
+                                    src="https://poocoin.app/images/logos/bscscan.png" height="20" />
+                                <img *ngIf="getAddress(item).name == 'ethereum'" class="networkImg"
+                                    style="vertical-align:middle;" aria-hidden
+                                    src="https://etherscan.io/images/logo-ether.png?v=0.0.2" height="20" />
+                                <img *ngIf="getAddress(item).name == 'polygon-pos'" class="networkImg"
+                                    style="vertical-align:middle;" aria-hidden
+                                    src="https://polygonscan.com/images/svg/brands/poly.png" height="20" />
+                                <small style="display: block;line-height: 12px;">{{getAddress(item).address}}</small>
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                    <!-- <select [formControl]="symbolCategorySelect" class="BlockChainSelect">
+                        <option *ngFor="let symbolCategory of symbolsCategories" [value]="symbolCategory.key">
+                            {{symbolCategory.name}}
+                        </option>
+                    </select> -->
+                </form>
+            </div>
             <div class="grid-container">
-                <div class="grid-item"></div>
-                <div class="grid-item"></div>
-                <div class="grid-item"></div>  
-                <div class="grid-item"></div>
-                <div class="grid-item"></div>
-                <div class="grid-item"></div>  
-                <div class="grid-item"></div>
-                <div class="grid-item"></div>
-                <div class="grid-item"></div>  
-              </div>
-              
+                <!-- <div class="grid-item">
+                    <ng-template #container0></ng-template>
+                    <tradingview-charting [symbol]="panelList[0].symbol" [network]="panelList[0].netWorkSelected">
+                    </tradingview-charting>
+                </div>
+                <div class="grid-item">
+                    <ng-template #container1></ng-template>
+                    <tradingview-charting [symbol]="panelList[1].symbol" [network]="panelList[1].netWorkSelected"
+                        [content]="1">
+                    </tradingview-charting>
+                </div> -->
+                <div class="grid-item">
+                    <div *ngIf="tradePanelList[0].estado" class="TradePanelControls">
+                        <button mat-raised-button (click)="openDialog(0)">Trade</button>
+                    </div>
+                    <ng-template #container0></ng-template>
+                </div>
+                <div class="grid-item">
+                    <div *ngIf="tradePanelList[1].estado" class="TradePanelControls">
+                        <button mat-raised-button (click)="openDialog(1)">Trade</button>
+                    </div>
+                    <ng-template #container1></ng-template>
+                </div>
+                <div class="grid-item">
+                    <div *ngIf="tradePanelList[2].estado" class="TradePanelControls">
+                        <button mat-raised-button (click)="openDialog(2)">Trade</button>
+                    </div>
+                    <ng-template #container2></ng-template>
+                </div>
+                <div class="grid-item">
+                    <div *ngIf="tradePanelList[3].estado" class="TradePanelControls">
+                        <button mat-raised-button (click)="openDialog(3)">Trade</button>
+                    </div>
+                    <ng-template #container3></ng-template>
+                </div>
+                <div class="grid-item">
+                    <div *ngIf="tradePanelList[4].estado" class="TradePanelControls">
+                        <button mat-raised-button (click)="openDialog(4)">Trade</button>
+                    </div>
+                    <ng-template #container4></ng-template>
+                </div>
+                <div class="grid-item">
+                    <div *ngIf="tradePanelList[5].estado" class="TradePanelControls">
+                        <button mat-raised-button (click)="openDialog(5)">Trade</button>
+                    </div>
+                    <ng-template #container5></ng-template>
+                </div>
+                <div class="grid-item">
+                    <div *ngIf="tradePanelList[6].estado" class="TradePanelControls">
+                        <button mat-raised-button (click)="openDialog(6)">Trade</button>
+                    </div>
+                    <ng-template #container6></ng-template>
+                </div>
+                <div class="grid-item">
+                    <div *ngIf="tradePanelList[7].estado" class="TradePanelControls">
+                        <button mat-raised-button (click)="openDialog(7)">Trade</button>
+                    </div>
+                    <ng-template #container7></ng-template>
+                </div>
+                <div class="grid-item">
+                    <div *ngIf="tradePanelList[8].estado" class="TradePanelControls">
+                        <button mat-raised-button (click)="openDialog(8)">Trade</button>
+                    </div>
+                    <ng-template #container8></ng-template>
+                </div>
+            </div>
+
         </div>
-        <div class="contdere">
-            <div class="publicidad2"></div>
+        <div class="RighttAdvertisingPanel">
+            <div class="publicidad2">
+                <img src="../../assets/img/giphy.gif" alt="" style="height: 100%;width: 100%;">
+            </div>
             <div class="tabla"></div>
-            <div class="publicidad3"></div>
+            <div class="publicidad3">
+                <img src="../../assets/img/giphy.gif" alt="" style="height: 100%;width: 100%;">
+            </div>
             <div class="publicidad4"></div>
         </div>
     </div>

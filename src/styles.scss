@@ -1,6 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+html,
+body {
+  height: 100%;
+}
 
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.AutoComplete {
+  .mat-form-field-underline {
+    display: none !important;
+  }
+}
+
+.TradingViewControls {
+  background-color: white;
+
+  .mat-form-field-flex {
+    background-color: white;
+  }
+}
+
+app-footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  z-index: 999;
+}

@@ -8,7 +8,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginFormComponent implements OnInit {
   @Output() sendLoginForm = new EventEmitter<void>();
-  public form: FormGroup;
+  public form!: FormGroup;
   public flatlogicEmail = 'admin@flatlogic.com';
   public flatlogicPassword = 'admin';
 

@@ -1,86 +1,113 @@
 .menuOptions {
-    position:absolute;
-    right: 0;
-}
-.itemOptions {
-    padding: 0em 1em;
-    width: auto;
-}
-.logo {
-    height: 100%;
-    img{
-        height: 100%;
-        width: 100%;
-    }
-}
-.publicidad1 {
-    margin-top: 1em;
-    height: 7em;
-    width: 98%;
-    margin-left: 1em;
-    background-color: gray;
-}
-.conten {
-    width: 98%;
-    margin-left: 1em;
-    margin-top: 1em;
-}
-.cont1 {
-    width: 20%;
-    display: inline-block;
-}
-.item1 {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #0d1f4b;
+  color: white;
+  width: 60%;
+  border-top-left-radius: 0em;
+  border-bottom-left-radius: 5em;
+
+  div {
     width: 100%;
-    height: 20em;
-    background-color: gray;
-    margin-bottom: 0.5em;
-}
-.publicidad3 {
-    width: 100%;
-    height: 7em;
-    margin-top: 0.5em;
-    background-color: yellow;
-}
-.cont2 {
-    width: 59%;
-    display: inline-block;
-    vertical-align: top;
-    margin-top: 0.5em;
-}
-.item2 {
-    width: 100%;
-    height: 5em;
-    background-color: gray;
-    margin-bottom: 0.5em;
-    margin-left: 0.5em;
-}
-.grafica {
-    width: 100%;
-    height: 22em;
-    margin-top: 0.5em;
-    background-color:gray;
-    margin-left: 0.5em;
-    vertical-align: top;
-}
-.cont3 {
-    width: 19.6%;
-    display: inline-block;
-    margin-left: 0.5em;
-    vertical-align: top;
-   
-}
-.publicidad2 {
-    width: 100%;
-    height: 7em;
-    margin-top: 0.5em;
-    background-color: yellow;
-    margin-bottom: 0.5em;
-    margin-left: 0.5em;
-}
-.item3 {
-    width: 100%;
-    height: 20em;
-    background-color: gray; 
-    margin-left: 0.5em;
+    text-align: right;
+  }
 }
 
+.itemOptions {
+  padding: 0em 1em;
+  width: auto;
+}
+
+.logo {
+  height: 100%;
+
+  img {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.publicidad1 {
+  margin-top: 1em;
+  height: 7em;
+  width: 98%;
+  margin-left: 1em;
+  background-color: gray;
+}
+
+.conten {
+  width: 98%;
+  margin-left: 1em;
+  margin-top: 1em;
+}
+
+.cont1 {
+  width: 20%;
+  display: inline-block;
+}
+
+.item1 {
+  width: 100%;
+  height: 20em;
+  background-color: gray;
+  margin-bottom: 0.5em;
+}
+
+.publicidad3 {
+  width: 100%;
+  height: 7em;
+  margin-top: 0.5em;
+  background-color: yellow;
+}
+
+.cont2 {
+  width: 59%;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 0.5em;
+}
+
+.item2 {
+  width: 100%;
+  height: 5em;
+  background-color: gray;
+  margin-bottom: 0.5em;
+  margin-left: 0.5em;
+}
+
+.grafica {
+  width: 100%;
+  height: 22em;
+  margin-top: 0.5em;
+  background-color: gray;
+  margin-left: 0.5em;
+  vertical-align: top;
+}
+
+.cont3 {
+  width: 19.6%;
+  display: inline-block;
+  margin-left: 0.5em;
+  vertical-align: top;
+
+}
+
+.publicidad2 {
+  width: 100%;
+  height: 7em;
+  margin-top: 0.5em;
+  background-color: yellow;
+  margin-bottom: 0.5em;
+  margin-left: 0.5em;
+}
+
+.item3 {
+  width: 100%;
+  height: 20em;
+  background-color: gray;
+  margin-left: 0.5em;
+}

@@ -1,31 +1,82 @@
-<div class="publicidad1">
-<img class="tamañoPubli" src="../../assets/img/dplnews_bitcoin_vr090221.gif" alt="">
-</div>
+<!-- <div class="publicidad1">
+    <img class="tamañoPubli" src="../../assets/img/dplnews_bitcoin_vr090221.gif" alt="">
+</div> -->
 
 <div class="flex-container">
 
-    <div class="item1">
+    <div class="LeftAdvertisingPanel">
         <div class="tab1">
             <div>
                 <div class="PanelBalance">
                     <span><b>Total Supply:</b></span><br />
                     <span>{{totalSupply}}</span>
                 </div>
+                <div class="PanelBalance">
+                    <span><b>MarketCap:</b></span><br />
+                    <span>{{marketCap | currency }}</span>
+                </div>
 
-                <ul class="TableLinkBinance">
+
+
+                <ul *ngIf="netWorkSelected == 'binance-smart-chain'" class="TableLinkBinance">
                     <li>
                         <img class="ImageLinksBinance" src="https://poocoin.app/images/logos/bscscan.png" alt="">
-                        <a href="https://bscscan.com/token/{{token.link}}" target="_bank">{{token.symbol}}
+                        <a href="https://bscscan.com/token/{{getAddress(token).address}}"
+                            target="_bank">{{token.symbol}}
                             Transactions</a>
                     </li>
                     <li>
                         <img class="ImageLinksBinance" src="https://poocoin.app/images/logos/bscscan.png" alt="">
-                        <a href="https://bscscan.com/address/{{token.link}}#code" target="_bank">{{token.symbol}}
+                        <a href="https://bscscan.com/address/{{getAddress(token).address}}#code"
+                            target="_bank">{{token.symbol}}
                             Contract</a>
                     </li>
                     <li>
                         <img class="ImageLinksBinance" src="https://poocoin.app/images/logos/bscscan.png" alt="">
-                        <a href="https://bscscan.com/token/{{token.link}}#balances" target="_bank">{{token.symbol}}
+                        <a href="https://bscscan.com/token/{{getAddress(token).address}}#balances"
+                            target="_bank">{{token.symbol}}
+                            Holders</a>
+                    </li>
+                </ul>
+
+                <ul *ngIf="netWorkSelected == 'ethereum'" class="TableLinkBinance">
+                    <li>
+                        <img class="ImageLinksBinance" src="/assets/img/icon/ethscan.png" alt="">
+                        <a href="https://etherscan.io/token/{{getAddress(token).address}}"
+                            target="_bank">{{token.symbol}}
+                            Transactions</a>
+                    </li>
+                    <li>
+                        <img class="ImageLinksBinance" src="/assets/img/icon/ethscan.png" alt="">
+                        <a href="https://etherscan.io/address/{{getAddress(token).address}}#code"
+                            target="_bank">{{token.symbol}}
+                            Contract</a>
+                    </li>
+                    <li>
+                        <img class="ImageLinksBinance" src="/assets/img/icon/ethscan.png" alt="">
+                        <a href="https://etherscan.io/token/{{getAddress(token).address}}#balances"
+                            target="_bank">{{token.symbol}}
+                            Holders</a>
+                    </li>
+                </ul>
+
+                <ul *ngIf="netWorkSelected == 'polygon-pos'" class="TableLinkBinance">
+                    <li>
+                        <img class="ImageLinksBinance" src="https://polygonscan.com/images/svg/brands/poly.png" alt="">
+                        <a href="https://polygonscan.com/token/{{getAddress(token).address}}"
+                            target="_bank">{{token.symbol}}
+                            Transactions</a>
+                    </li>
+                    <li>
+                        <img class="ImageLinksBinance" src="https://polygonscan.com/images/svg/brands/poly.png" alt="">
+                        <a href="https://polygonscan.com/address/{{getAddress(token).address}}#code"
+                            target="_bank">{{token.symbol}}
+                            Contract</a>
+                    </li>
+                    <li>
+                        <img class="ImageLinksBinance" src="https://polygonscan.com/images/svg/brands/poly.png" alt="">
+                        <a href="https://polygonscan.com/token/{{getAddress(token).address}}#balances"
+                            target="_bank">{{token.symbol}}
                             Holders</a>
                     </li>
                 </ul>
@@ -35,13 +86,9 @@
             <img class="tamañoPubli" src="../../assets/img/giphy (1).gif" alt="">
         </div>
     </div>
-    <div class="item2">
+    <div class="SecondaryContentPanel">
         <div class="tab3">
             <div class="PanelBuscador">
-                <div>
-                    <img style="vertical-align:middle;" aria-hidden src="{{token.logo}}" height="20" />
-                    <span>{{token.name}}/ BNB)</span>
-                </div>
                 <form [formGroup]="formGroup">
                     <mat-form-field class="AutoComplete">
                         <mat-label>
@@ -51,71 +98,202 @@
                         <mat-autocomplete #auto="matAutocomplete">
                             <mat-option *ngFor="let item of filteredOptions" [value]="item.name"
                                 (click)="selectCoin(item)">
-                                <img style="vertical-align:middle;" aria-hidden src="{{item.logo}}" height="20" />
+                                <img *ngIf="item.logo" style="vertical-align:middle;" aria-hidden
+                                    src="https://cavecoin.app:3011/public/{{item.logo}}" height="20" />
+                                <img *ngIf="!item.logo" style="vertical-align:middle;" aria-hidden
+                                    src="/assets/img/empty-icon.png" height="20" />
                                 <span>{{ item.name }}</span>
-                                <small style="display: block;line-height: 12px;">{{item.link}}</small>
+                                <div class="networkImg" *ngIf="getAddress(item).name == 'binance-smart-chain'">
+                                    <img style="vertical-align:middle;" aria-hidden
+                                        src="https://poocoin.app/images/logos/bscscan.png" height="20" />
+                                    <span style="display: block;line-height: 14px;">Binance Smart Chain</span>
+                                </div>
+                                <div class="networkImg" *ngIf="getAddress(item).name == 'ethereum'">
+                                    <img style="vertical-align:middle;" aria-hidden
+                                        src="https://etherscan.io/images/logo-ether.png?v=0.0.2" height="20" />
+                                    <span style="display: block;line-height: 14px;">Ethereum</span>
+                                </div>
+                                <div class="networkImg" *ngIf="getAddress(item).name == 'polygon-pos'">
+                                    <img style="vertical-align:middle;" aria-hidden
+                                        src="https://polygonscan.com/images/svg/brands/poly.png" height="20" />
+                                    <span style="display: block;line-height: 14px;">Polygon</span>
+                                </div>
+                                <small style="display: block;line-height: 12px;">{{getAddress(item).address}}</small>
                             </mat-option>
                         </mat-autocomplete>
                     </mat-form-field>
                 </form>
+                <div class="PanelInfoToken">
+                    <!-- <img *ngIf="token.logo" style="vertical-align:middle;" aria-hidden
+                        src="https://cavecoin.app:3011/public/{{token.logo}}" height="20" /> -->
+                    <img *ngIf="token.logo" style="vertical-align:middle;" aria-hidden src="{{token.logo}}"
+                        height="20" />
+                    <img *ngIf="!token.logo" style="vertical-align:middle;" aria-hidden src="/assets/img/empty-icon.png"
+                        height="20" />
+                    <span>{{token.name}} ({{token.symbol}} / {{currentQuoteAsset.quoteAsset}})</span>
+                    <a *ngIf="netWorkSelected == 'binance-smart-chain'" class="InformationButton" mat-raised-button
+                        href="https://bscscan.com/token/{{getAddress(token).address}}" target="_blank">
+                        <img class="ImageLinksBinance" src="https://poocoin.app/images/logos/bscscan.png" alt="">
+                    </a>
+                    <a *ngIf="netWorkSelected == 'ethereum'" class="InformationButton" mat-raised-button
+                        href="https://etherscan.io/token/{{getAddress(token).address}}" target="_blank">
+                        <img class="ImageLinksBinance" src="/assets/img/icon/ethscan.png" alt="">
+                    </a>
+                    <a *ngIf="netWorkSelected == 'polygon-pos'" class="InformationButton" mat-raised-button
+                        href="https://polygonscan.com/token/{{getAddress(token).address}}" target="_blank">
+                        <img class="ImageLinksBinance" src="https://polygonscan.com/images/svg/brands/poly.png" alt="">
+                    </a>
+                    <button mat-raised-button (click)="openDialog()">Trade</button>
+
+                </div>
             </div>
         </div>
-        <div class="tab4"></div>
+        <div class="tab4">
+            <!-- <div class="TradingViewControls">
+                <mat-form-field appearance="fill">
+                    <mat-label>Token</mat-label>
+                    <mat-select [formControl]="currentQuoteAssetForm">
+                        <mat-option *ngFor="let symbolExchange of symbolExchangeList" [value]="symbolExchange.symbol">
+                            {{symbolExchange.symbol}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div> -->
+            <tradingview-charting [coin]="token" [symbol]="currentQuoteAsset.symbol"
+                [quoteAsset]="currentQuoteAsset.quoteAsset" [network]="netWorkSelected">
+            </tradingview-charting>
+        </div>
     </div>
-    <div class="item3">
+    <div class="RighttAdvertisingPanel">
         <div class="publicidad2">
             <img class="tamañoPubli" src="../../assets/img/giphy.gif" alt="">
         </div>
-        <div class="tab5"></div>
+        <div class="tab5">
+            <div class="BalanceTable">
+                <table *ngIf="tokenWalletTemp">
+                    <tr>
+                        <th>Tokens</th>
+                        <th>Balance</th>
+                    </tr>
+                    <tr>
+                        <td>BNB {{tokenWalletTemp.currentPrice | currency}}<br>BNB</td>
+                        <td>{{tokenWalletTemp.mycant}}<br>{{ (tokenWalletTemp.currentPrice * tokenWalletTemp.mycant) |
+                            currency }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
 
 <div class="flex-container2">
 
-    <div class="item4">
+    <div class="LeftAdvertisingPanel">
         <img class="tamañoPubli" src="../../assets/img/giphy2.gif" alt="">
     </div>
-    <div class="item5">
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 TxTable" >
+    <div class="ContentPanel">
+        <span>data: {{lastTransactions.length}}</span>
+        <mat-tab-group mat-align-tabs="center">
+            <mat-tab label="Token tx">
+                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 TxTable" matSort>
 
-            <!--- Note that these columns can be defined in any order.
-                  The actual rendered columns are set as a property on the row definition" -->
+                    <!--- Note that these columns can be defined in any order.
+                          The actual rendered columns are set as a property on the row definition" -->
 
-            <!-- Position Column -->
-            <ng-container matColumnDef="address">
-                <th mat-header-cell *matHeaderCellDef> address </th>
-                <td mat-cell *matCellDef="let element"> {{element.address}} </td>
-            </ng-container>
+                    <ng-container matColumnDef="index">
+                        <mat-header-cell *matHeaderCellDef> Index </mat-header-cell>
+                        <mat-cell *matCellDef="let element; let i = index;">{{i}}</mat-cell>
+                    </ng-container>
 
-            <!-- Name Column -->
-            <ng-container matColumnDef="value">
-                <th mat-header-cell *matHeaderCellDef> value </th>
-                <td mat-cell *matCellDef="let element"> {{element.value}} </td>
-            </ng-container>
 
-            <!-- Weight Column -->
-            <ng-container matColumnDef="timestamp">
-                <th mat-header-cell *matHeaderCellDef> timestamp </th>
-                <td mat-cell *matCellDef="let element"> {{element.timestamp | date}} </td>
-            </ng-container>
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="tokensTx">
+                        <th mat-header-cell *matHeaderCellDef> Tokens </th>
+                        <td mat-cell *matCellDef="let element"> {{element.tokensTx}} </td>
+                    </ng-container>
 
-            <!-- Symbol Column -->
-            <ng-container matColumnDef="gas">
-                <th mat-header-cell *matHeaderCellDef> gas </th>
-                <td mat-cell *matCellDef="let element"> {{element.gas}} </td>
-            </ng-container>
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="value">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
+                        <td mat-cell *matCellDef="let element">
+                            <span>{{element.price}}</span><br /><span>{{element.value}}
+                                BNB</span>
+                        </td>
+                    </ng-container>
 
-            <!-- Symbol Column -->
-            <ng-container matColumnDef="gasPrice">
-                <th mat-header-cell *matHeaderCellDef> gasPrice </th>
-                <td mat-cell *matCellDef="let element"> {{element.gasPrice}} </td>
-            </ng-container>
+                    <!-- Symbol Column -->
+                    <ng-container matColumnDef="priceToken">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Price/Token </th>
+                        <td mat-cell *matCellDef="let element"> {{element.priceToken}} </td>
+                    </ng-container>
 
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
+                    <!-- Weight Column -->
+                    <ng-container matColumnDef="timestamp">
+                        <th mat-header-cell *matHeaderCellDef> Date </th>
+                        <td mat-cell *matCellDef="let element"> {{element.timestamp | date:'dd/MM/yy HH:mm:ss'}} </td>
+                    </ng-container>
+
+                    <!-- Symbol Column -->
+                    <ng-container matColumnDef="indexTxHash">
+                        <th mat-header-cell *matHeaderCellDef> Tx </th>
+                        <td mat-cell *matCellDef="let element"> <a href="https://bscscan.com/tx/{{element.txHash}}"
+                                target="_blank">{{element.indexTxHash}}</a> </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns; let i = index"></tr>
+                </table>
+            </mat-tab>
+            <mat-tab label="Buyers">
+                <table mat-table [dataSource]="dataSourceBuyers" class="mat-elevation-z8 TxTable">
+
+                    <!--- Note that these columns can be defined in any order.
+                          The actual rendered columns are set as a property on the row definition" -->
+
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="wallet">
+                        <th mat-header-cell *matHeaderCellDef> Wallet </th>
+                        <td mat-cell *matCellDef="let element"> {{element.wallet}} </td>
+                    </ng-container>
+
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="total">
+                        <th mat-header-cell *matHeaderCellDef> Total Bought </th>
+                        <td mat-cell *matCellDef="let element"><span>{{element.total}}</span></td>
+                    </ng-container>
+
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumnsBuyersAndSellers"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumnsBuyersAndSellers;"></tr>
+                </table>
+            </mat-tab>
+            <mat-tab label="Sellers">
+                <table mat-table [dataSource]="dataSourceSellers" class="mat-elevation-z8 TxTable">
+
+                    <!--- Note that these columns can be defined in any order.
+                          The actual rendered columns are set as a property on the row definition" -->
+
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="wallet">
+                        <th mat-header-cell *matHeaderCellDef> Wallet </th>
+                        <td mat-cell *matCellDef="let element"> {{element.wallet}} </td>
+                    </ng-container>
+
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="total">
+                        <th mat-header-cell *matHeaderCellDef> Total Sold </th>
+                        <td mat-cell *matCellDef="let element"><span>{{element.total}}</span></td>
+                    </ng-container>
+
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumnsBuyersAndSellers"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumnsBuyersAndSellers;"></tr>
+                </table>
+            </mat-tab>
+        </mat-tab-group>
+
     </div>
-    <div class="item6">
+    <div class="RighttAdvertisingPanel">
         <img class="tamañoPubli" src="../../assets/img/descarga.jpeg" alt="">
     </div>
 

@@ -3,6 +3,11 @@ import detectEthereumProvider from '@metamask/detect-provider';
 declare let window: any;
 import WalletConnect from "@walletconnect/client";
 import QRCodeModal from "@walletconnect/qrcode-modal";
+const Web3 = require('web3');
+import { BscConnector } from '@binance-chain/bsc-connector'
+import { GeneralService } from '../services/general.service';
+import { HomeComponent } from '../home/home.component';
+import { DetailComponent } from '../detail/detail.component';
 
 @Component({
   selector: 'app-navbar',
@@ -11,11 +16,22 @@ import QRCodeModal from "@walletconnect/qrcode-modal";
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  isLogin = false;
+  constructor(
+    private generalService: GeneralService,
+  ) { }
 
   ngOnInit(): void {
-    this.conectMetaMask();
+    // this.conectMetaMask();
   }
+
+  ngAfterViewInit(){
+    let address = localStorage.getItem('mwl');
+    if(address != null){
+      this.isLogin = true;
+    }
+  }
+
 
   async conectMetaMask() {
     const provider = await detectEthereumProvider();
@@ -78,7 +94,9 @@ export class NavbarComponent implements OnInit {
     else {
       // Do any other work!
       console.log('this.currentAccount', accounts[0]);
+      localStorage.setItem('mwl',accounts[0]);
       window.ethereum.on('wallet_watchAsset', (res: any) => { console.log('res', res); });
+      window.location.reload();
     }
   }
 
@@ -125,6 +143,12 @@ export class NavbarComponent implements OnInit {
       const { accounts, chainId } = payload.params[0];
       console.log('trustwallwet accounts', accounts);
       console.log('trustwallwet chainId', chainId);
+      // this.generalService.updateTokenWallet(accounts[0]);
+      // GeneralService.tokenWallet  = accounts[0];
+      localStorage.setItem('mwl',accounts[0]);
+      HomeComponent.tokenWallet.setValue(accounts[0]);
+      DetailComponent.tokenWallet.setValue(accounts[0]);
+      window.location.reload();
     });
 
     connector.on("session_update", (error, payload) => {
@@ -138,6 +162,36 @@ export class NavbarComponent implements OnInit {
       if (error) { throw error; }  // Delete connector
     });
 
+  }
+
+  async connectBsc() {
+    let eth: any = new Web3();
+    let bloqueinicialhex = eth.utils.numberToHex(56);
+    console.log('bloqueinicialhex', bloqueinicialhex);
+
+    window.ethereum
+      .request(
+        { 
+          method: 'wallet_switchEthereumChain',
+          params: [{ chainId: bloqueinicialhex }]
+        }
+      )
+      .then(this.handleAccountsChanged)
+      .catch((err: any) => {
+        if (err.code === 4001) {
+          // EIP-1193 userRejectedRequest error
+          // If this happens, the user rejected the connection request.
+          console.log('--Please connect to MetaMask.');
+        } else {
+          console.error(err);
+        }
+        this.connect();
+      });
+  }
+
+  closeWallet(){
+    localStorage.removeItem('mwl');
+    window.location.reload();
   }
 
 }

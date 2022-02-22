@@ -1,0 +1,27 @@
+.TradePanel {
+    text-align: center;
+    min-height: 40em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.SwapForm {
+    display: inline-block;
+    text-align: left;
+    padding: 3em 1.5em;
+    border: 1px solid #ccc;
+    border-radius: 1em;
+
+    .SwapButtons{
+        text-align: center;
+        button{
+            width: 100%;
+        }
+    }
+}
+
+.OptionImgToken{
+    margin-right: 0.5em;
+}

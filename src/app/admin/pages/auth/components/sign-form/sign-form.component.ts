@@ -8,7 +8,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class SignFormComponent implements OnInit {
   @Output() sendSignForm = new EventEmitter<void>();
-  public form: FormGroup;
+  public form!: FormGroup;
 
   public ngOnInit(): void {
     this.form = new FormGroup({
